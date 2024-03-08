@@ -4,6 +4,7 @@
   "description": "",
   "main": "zstdserver.js",
   "scripts": {
+    "build": "echo \"Error: no test specified\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
