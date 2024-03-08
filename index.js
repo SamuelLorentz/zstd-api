@@ -9,7 +9,7 @@ app.get("/", (req, res) => res.send("Express on Vercel"));
 
 app.get('/zstd', async (req, res) => {
   try {
-    const data = fs.readFileSync('content.html');
+    const data = fs.readFileSync('./content.html');
     const compressedData = await zstd.compress(data, 5);
 
     res.setHeader('Content-Encoding', 'zstd');
