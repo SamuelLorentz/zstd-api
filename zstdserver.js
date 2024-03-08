@@ -5,6 +5,8 @@ const  zstd = require('@mongodb-js/zstd');
 const app = express();
 const PORT = 3000;
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
 app.get('/zstd', async (req, res) => {
   try {
     const data = fs.readFileSync('content.html');
@@ -22,3 +24,5 @@ app.get('/zstd', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+module.exports = app;
