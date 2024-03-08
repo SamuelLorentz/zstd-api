@@ -12,10 +12,9 @@ app.get('/zstd', async (req, res) => {
   try {
     let contentPath = path.join(process.cwd(), 'content.html');
     const data = fs.readFileSync(contentPath);
-    const compressedData = await zstd.compress(data, 5);
-
+    const compressedData = await zstd.compress(data, 3);
     res.setHeader('Content-Encoding', 'zstd');
-    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Type', 'text/html');
     res.send(compressedData);
   } catch (err) {
     console.error(err);
