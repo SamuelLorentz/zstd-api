@@ -8,7 +8,7 @@ const PORT = 3000;
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
-app.get("/", (req, res) => {
+app.get("/get", (req, res) => {
 
   try {
     
