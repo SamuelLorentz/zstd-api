@@ -8,7 +8,7 @@ const PORT = 3000;
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
-app.get("/get", (req, res) => {
+app.get("/get", async (req, res) => {
 
   try {
     
@@ -23,8 +23,8 @@ app.get("/get", (req, res) => {
     res.setHeader('Content-Encoding', 'zstd');
     res.setHeader('Content-Type', 'text/html');
     
-    const compressedData = zstd.compress(headersHtml, 3);
-    res.send(compressedData);
+    const compressedData = await zstd.compress(Buffer.from(headersHtml), 3);
+    res.status(200).send(compressedData);
 
   } catch (err) {
     console.error(err);
